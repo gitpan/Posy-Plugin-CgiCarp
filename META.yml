@@ -1,17 +1,17 @@
 --- #YAML:1.0
 name: Posy-Plugin-CgiCarp
-version: 0.50
+version: 0.60
 author:
   - Kathryn Andersen
-abstract: Posy plugin to aid debugging by using CGI::Carp
+abstract: Posy plugin to aid debugging by using CGI::Carp.
 license: perl
 requires:
   CGI::Carp: 1.27
-  Posy: 0.7
+  Posy: 0.8
 build_requires:
   Test::More: 0
 provides:
   Posy::Plugin::CgiCarp:
     file: lib/Posy/Plugin/CgiCarp.pm
-    version: 0.50
+    version: 0.60
 generated_by: Module::Build version 0.2605

@@ -4,15 +4,15 @@ use warnings;
 
 =head1 NAME
 
-Posy::Plugin::CgiCarp - Posy plugin to aid debugging by using CGI::Carp
+Posy::Plugin::CgiCarp - Posy plugin to aid debugging by using CGI::Carp.
 
 =head1 VERSION
 
-This describes version B<0.50> of Posy::Plugin::CgiCarp.
+This describes version B<0.60> of Posy::Plugin::CgiCarp.
 
 =cut
 
-our $VERSION = '0.50';
+our $VERSION = '0.60';
 
 =head1 SYNOPSIS
 
@@ -44,7 +44,9 @@ Methods which can be called from within other methods.
 
 =head2 print_header
 
-    $self->print_header($content_type, $extra);
+    $self->print_header(content_type=>$content_type,
+	status=>$status,
+	extra=>$extra);
 
 Print a web-page header, with content-type and any extra things
 required for the header.
@@ -53,12 +55,8 @@ Turns on warningsToBrowser.
 =cut
 sub print_header {
     my $self = shift;
-    my $content_type = shift;
-    my $extra = shift;
 
-    print "Content-Type: $content_type\n";
-    print $extra if $extra;
-    print "\n";
+    $self->SUPER::print_header($self, @_);
     warningsToBrowser(1);
 } # print_header
 

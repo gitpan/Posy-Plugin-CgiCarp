@@ -1,12 +1,12 @@
 
 ==== NAME ====
 
-Posy::Plugin::CgiCarp - Posy plugin to aid debugging by using CGI::Carp
+Posy::Plugin::CgiCarp - Posy plugin to aid debugging by using CGI::Carp.
 
 
 ==== VERSION ====
 
-This describes version ``0.50'' of Posy::Plugin::CgiCarp.
+This describes version ``0.60'' of Posy::Plugin::CgiCarp.
 
 
 ==== DESCRIPTION ====

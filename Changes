@@ -1,6 +1,12 @@
 Revision history for Posy-Plugin-CgiCarp
 ========================================
 
+0.60 Sat 29 January 2005
+------------------------
+
+  * (29 Jan 2005) print_header changes
+  	Now using the more correct Posy 0.80 print_header.
+
 0.50 Sat 22 January 2005
 ------------------------
 
