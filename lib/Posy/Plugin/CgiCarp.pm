@@ -8,11 +8,11 @@ Posy::Plugin::CgiCarp - Posy plugin to aid debugging by using CGI::Carp
 
 =head1 VERSION
 
-This describes version B<0.40> of Posy::Plugin::CgiCarp.
+This describes version B<0.50> of Posy::Plugin::CgiCarp.
 
 =cut
 
-our $VERSION = '0.40';
+our $VERSION = '0.50';
 
 =head1 SYNOPSIS
 
@@ -30,84 +30,37 @@ module.
 
 This plugin needs to be added to the plugins list.
 
-Note that since this replaces methods without calling the
-parent methods, if you use this plugin along with other plugins
-which override the methods below, you need to be careful what
-order you place them.
+This replaces the 'debug' and 'print_header' methods; note that
+if a plugin needs to print a header (such as, if, for example,
+it replaces the 'render_page' method) then it should call the
+'print_header' method.
 
 =cut
 use CGI::Carp qw(fatalsToBrowser warningsToBrowser);
 
-=head1 Flow Action Methods
-
-Methods implementing actions.
-
-=head2 stop_if_not_found
-
-If there was an error parsing the path ($self->{path}->{error} is true)
-then flag the actions to stop.
-
-Also sends a 404 error if we are in dynamic mode; this assumes that
-if it can't parse the path, it can't find the file.
-
-=cut
-sub stop_if_not_found {
-    my $self = shift;
-    my $flow_state = shift;
-
-    if ($self->{path}->{error})
-    {
-	$flow_state->{stop} = 1;
-	if ($self->{dynamic})
-	{
-	    print "Content-Type: text/plain\n";
-	    print "Status: 404\n";
-	    print "\n";
-	    warningsToBrowser(1);
-	    print "404 page '", $self->{path}->{info}, "' not found";
-	}
-    }
-} # stop_if_not_found
-
-=head2 render_page
-
-$self->render_page($flow_state);
-
-Put the page together by pasting together its parts in the $flow_state hash
-and print it (either to a file, or to STDOUT).  If printing to a file,
-don't print content_type.
-
-=cut
-sub render_page {
-    my $self = shift;
-    my $flow_state = shift;
-
-    if (defined $self->{outfile}
-	and $self->{outfile}) # print to a file
-    {
-	my $fh;
-	if (open $fh, ">$self->{outfile}")
-	{
-	    warningsToBrowser(1);
-	    print $fh $flow_state->{head};
-	    print $fh @{$flow_state->{page_body}};
-	    print $fh $flow_state->{foot};
-	    close($fh);
-	}
-    }
-    else {
-	print 'Content-Type: ', $flow_state->{content_type}, "\n\n";
-	warningsToBrowser(1);
-	print $flow_state->{head};
-	print @{$flow_state->{page_body}};
-	print $flow_state->{foot};
-    }
-    1;	
-} # render_page
-
 =head1 Helper Methods
 
 Methods which can be called from within other methods.
+
+=head2 print_header
+
+    $self->print_header($content_type, $extra);
+
+Print a web-page header, with content-type and any extra things
+required for the header.
+Turns on warningsToBrowser.
+
+=cut
+sub print_header {
+    my $self = shift;
+    my $content_type = shift;
+    my $extra = shift;
+
+    print "Content-Type: $content_type\n";
+    print $extra if $extra;
+    print "\n";
+    warningsToBrowser(1);
+} # print_header
 
 =head2 debug
 

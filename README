@@ -6,7 +6,7 @@ Posy::Plugin::CgiCarp - Posy plugin to aid debugging by using CGI::Carp
 
 ==== VERSION ====
 
-This describes version ``0.40'' of Posy::Plugin::CgiCarp.
+This describes version ``0.50'' of Posy::Plugin::CgiCarp.
 
 
 ==== DESCRIPTION ====
@@ -20,9 +20,9 @@ module.
 
 This plugin needs to be added to the plugins list.
 
-Note that since this replaces methods without calling the parent methods, if
-you use this plugin along with other plugins which override the methods
-below, you need to be careful what order you place them.
+This replaces the 'debug' and 'print_header' methods; note that if a plugin
+needs to print a header (such as, if, for example, it replaces the
+'render_page' method) then it should call the 'print_header' method.
 
 
 ==== REQUIRES ====
