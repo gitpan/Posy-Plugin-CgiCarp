@@ -1,0 +1,50 @@
+
+==== NAME ====
+
+Posy::Plugin::CgiCarp - Posy plugin to aid debugging by using CGI::Carp
+
+
+==== VERSION ====
+
+This describes version ``0.40'' of Posy::Plugin::CgiCarp.
+
+
+==== DESCRIPTION ====
+
+This plugin is for developers to aid debugging by making all fatal errors
+and warning messages be displayed in the browser by using the CGI::Carp
+module.
+
+
+==   Activation   ==
+
+This plugin needs to be added to the plugins list.
+
+Note that since this replaces methods without calling the parent methods, if
+you use this plugin along with other plugins which override the methods
+below, you need to be careful what order you place them.
+
+
+==== REQUIRES ====
+
+    CGI::Carp
+    Posy::Core
+    Posy
+
+    Test::More
+
+
+==== AUTHOR ====
+
+    Kathryn Andersen (RUBYKAT)
+    perlkat AT katspace dot com
+    http://www.katspace.com
+
+
+==== COPYRIGHT AND LICENCE ====
+
+Copyright (c) 2004-2005 by Kathryn Andersen
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+
