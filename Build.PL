@@ -8,7 +8,7 @@ my $builder = Module::Build->new(
     dist_author         => 'Kathryn Andersen',
     dist_version_from   => 'lib/Posy/Plugin/CgiCarp.pm',
 	requires            => {
-	'Posy' => 0.80,
+	'Posy' => 0.90,
 	'CGI::Carp' => 1.27,
 	},
     build_requires => {
