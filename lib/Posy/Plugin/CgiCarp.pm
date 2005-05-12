@@ -8,11 +8,11 @@ Posy::Plugin::CgiCarp - Posy plugin to aid debugging by using CGI::Carp.
 
 =head1 VERSION
 
-This describes version B<0.61> of Posy::Plugin::CgiCarp.
+This describes version B<0.62> of Posy::Plugin::CgiCarp.
 
 =cut
 
-our $VERSION = '0.61';
+our $VERSION = '0.62';
 
 =head1 SYNOPSIS
 
