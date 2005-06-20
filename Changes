@@ -1,6 +1,13 @@
 Revision history for Posy-Plugin-CgiCarp
 ========================================
 
+0.6201 Mon 20 June 2005
+-----------------------
+
+  * (20 Jun 2005) fixed bug in print_header
+  	The print_header was fine, as long as one wasn't changing the
+  content-type, then it would sometimes go wonky.  Is fixed now.
+
 0.62 Thu 12 May 2005
 --------------------
 

@@ -8,11 +8,11 @@ Posy::Plugin::CgiCarp - Posy plugin to aid debugging by using CGI::Carp.
 
 =head1 VERSION
 
-This describes version B<0.62> of Posy::Plugin::CgiCarp.
+This describes version B<0.6201> of Posy::Plugin::CgiCarp.
 
 =cut
 
-our $VERSION = '0.62';
+our $VERSION = '0.6201';
 
 =head1 SYNOPSIS
 
@@ -56,7 +56,7 @@ Turns on warningsToBrowser.
 sub print_header {
     my $self = shift;
 
-    $self->SUPER::print_header($self, @_);
+    $self->SUPER::print_header(@_);
     warningsToBrowser(1);
 } # print_header
 

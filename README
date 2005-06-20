@@ -6,7 +6,7 @@ Posy::Plugin::CgiCarp - Posy plugin to aid debugging by using CGI::Carp.
 
 ==== VERSION ====
 
-This describes version ``0.62'' of Posy::Plugin::CgiCarp.
+This describes version ``0.6201'' of Posy::Plugin::CgiCarp.
 
 
 ==== DESCRIPTION ====
